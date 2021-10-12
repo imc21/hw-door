@@ -49,25 +49,17 @@ public class App extends Application {
     public void draw(){ //method that draws the main house
             //set background rectangles
         
-        int x = 12;
-        int y = 12;
-    
-       var sky = new StackPane();
-        bg1 = new Canvas(800, 450);
-      
-        
-        sky.getChildren().add(bg1);
-        gp.getChildren().add(sky);
-        
-        sky.setStyle("-fx-background-color: sky blue");
+            Canvas canvas = new Canvas(800, 450);
+            Group Gc = new Group(canvas);
+            canvas.setStyle("-fx-background-color: sky blue");
         
       
         //set triangle and color
         tangle = new Polygon();
         tangle.getPoints().addAll(new Double[]{
            400.0, 50.0,
-           150.0, 150.0,
-           650.0, 150.0
+           100.0, 150.0,
+           700.0, 150.0
         });
         tangle.setStroke(Color.BLACK);
         tangle.setFill(Color.WHITE);
@@ -78,8 +70,17 @@ public class App extends Application {
         house.setStroke(Color.BLACK);
         gp.getChildren().add(house);
         
-        
-        
+        for(int i = 0; i < 10; i++){
+            int x = 200 - (i * 10);
+            int y = 550 + (i * 10);
+            int w = 400 + (i * 20);
+            int l = 50;
+            stairs = new Rectangle(x, y, w , l);
+            stairs.setStroke(Color.BLACK);
+            gp.getChildren().add(stairs);
+            
+            
+        }       
         
     }
     
